@@ -1,5 +1,5 @@
-(defvar amt (car (read-from-string (format nil "(~a)" (read-line)))))
-(defvar denoms (read-from-string (format nil "(~a)" (read-line))))
+(defvar *amt* (car (read-from-string (format nil "(~a)" (read-line)))))
+(defvar *denoms* (read-from-string (format nil "(~a)" (read-line))))
 
 (defvar *c* (make-hash-table :test #'equal))
 
@@ -24,4 +24,4 @@
 
 (setf *c* (make-hash-table :test #'equal))
 
-(format t "~a" (make-change amt denoms))
+(format t "~a" (make-change *amt* *denoms*))
