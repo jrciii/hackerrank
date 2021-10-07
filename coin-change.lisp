@@ -18,10 +18,7 @@
 		    remain
 		    (remove-if (lambda (d) (< d coin)) denominations)
 		    cache)))
-             (sethash
-              cache
-              (list amount coin)
-              result))))))
+             (sethash cache (list amount coin) result))))))
     denominations)))
 
 (let ((amount (car (read-from-string (format nil "(~a)" (read-line)))))
