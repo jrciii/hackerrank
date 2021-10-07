@@ -7,21 +7,21 @@
    (mapcar
     (lambda (coin)
       (let ((remain (- amount coin))
-        (memo (gethash (list amount coin) cache)))
-    (cond
-      (memo memo)
-      ((< remain 0) 0)
-      ((= remain 0) 1)
-      (t
-       (let ((result
-	       (make-change
-		remain
-		(remove-if (lambda (d) (< d coin)) denominations)
-		cache)))
-         (sethash
-          cache
-          (list amount coin)
-          result))))))
+            (memo (gethash (list amount coin) cache)))
+	(cond
+	  (memo memo)
+	  ((< remain 0) 0)
+	  ((= remain 0) 1)
+	  (t
+	   (let ((result
+		   (make-change
+		    remain
+		    (remove-if (lambda (d) (< d coin)) denominations)
+		    cache)))
+             (sethash
+              cache
+              (list amount coin)
+              result))))))
     denominations)))
 
 (let ((amount (car (read-from-string (format nil "(~a)" (read-line)))))
